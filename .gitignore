@@ -27,4 +27,7 @@ Thumbs.db
 
 # Logs
 *.log
-.git/gc.log 
+.git/gc.log
+
+# Environment variables
+.env.* 
