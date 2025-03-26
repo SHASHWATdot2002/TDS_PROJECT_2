@@ -1,36 +1,42 @@
-﻿# FastAPI Language Model API
+# FastAPI LLM Question-Answering API
 
-A FastAPI application that provides an API interface to interact with language models through HuggingFace's API.
+A FastAPI-based REST API that provides question-answering capabilities using HuggingFace's language models. The API supports both direct questions and file-based answers through CSV uploads.
 
 ## Features
 
-- Integration with HuggingFace's API
-- Default model: Mistral (optimized for better response quality)
-- Simple REST API endpoints for text generation
-- Improved prompt formatting for accurate responses
+- Question answering using HuggingFace's language models
+- Support for multiple models (flan-t5-base, gpt2, flan-t5-large)
+- File processing for CSV files (must be zipped)
+- Environment variable configuration
+- Docker support
+- Automatic retries for API calls
 
 ## Prerequisites
 
-- Python 3.8+
-- HuggingFace API key
+- Python 3.9 or higher
+- HuggingFace API token
+- Docker (optional)
 
 ## Installation
 
 1. Clone the repository:
 ```bash
-git clone <your-repository-url>
+git clone <repository-url>
 cd <repository-name>
 ```
 
-2. Install dependencies:
+2. Create a virtual environment:
+```bash
+python -m venv env
+source env/bin/activate  # On Windows: env\Scripts\activate
+```
+
+3. Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Set up your environment variables:
-```bash
-export HUGGINGFACE_API_KEY=your_api_key_here
-```
+4. Create a `.env` file in the project root:
 
 ## Setup
 
@@ -84,4 +90,8 @@ The API includes robust error handling for:
 - Invalid prompts
 - API connection issues
 - Model-specific errors
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
 
