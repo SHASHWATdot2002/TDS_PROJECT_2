@@ -85,6 +85,3 @@ The API includes robust error handling for:
 - API connection issues
 - Model-specific errors
 
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
