@@ -13,7 +13,7 @@ load_dotenv()
 app = FastAPI()
 
 # Configuration
-HUGGINGFACE_API_TOKEN = os.getenv("HUGGINGFACE_API_TOKEN")
+HUGGINGFACE_API_TOKEN = os.getenv("HUGGINGFACE_API_TOKEN")  # Get the token from environment variable
 MAX_RETRIES = 5  # Increased maximum retries
 RETRY_DELAY = 3  # Increased delay between retries
 
@@ -29,10 +29,10 @@ DEFAULT_MODEL = "flan-t5-large"
 HUGGINGFACE_API_URL = MODELS[DEFAULT_MODEL]
 
 def get_llm_response(question: str, model_name: Optional[str] = None) -> str:
-    if not HUGGINGFACE_API_KEY:
+    if not HUGGINGFACE_API_TOKEN:
         raise HTTPException(status_code=503, detail="HuggingFace API key not configured")
     
-    headers = {"Authorization": f"Bearer {HUGGINGFACE_API_KEY}"}
+    headers = {"Authorization": f"Bearer {HUGGINGFACE_API_TOKEN}"}
     api_url = MODELS.get(model_name, HUGGINGFACE_API_URL) if model_name else HUGGINGFACE_API_URL
     
     # Prompt format that encourages direct answers without repeating the question
